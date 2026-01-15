@@ -17,7 +17,8 @@ void main() {
               fontSize: 20,
               fontWeight: FontWeight.bold,
               letterSpacing: 2.0,
-              color: Colors.grey
+              color: Colors.grey,
+              fontFamily: "Schyler"
               ),
           ),
         ),
