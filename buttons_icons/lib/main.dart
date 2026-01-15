@@ -25,11 +25,16 @@ class Home extends StatelessWidget {
           //   size: 50,
           // ),
 
-          child:ElevatedButton(onPressed: (){}, 
-          child:Text("Cilkme",
-          style: TextStyle(
-            color: Colors.blueGrey
-          ),))
+          // child:ElevatedButton(onPressed: (){}, 
+          // child:Text("Cilkme",
+          // style: TextStyle(
+          //   color: Colors.blueGrey
+          // ),))
+
+          child: IconButton(
+            onPressed: (){
+            }, 
+            icon: Icon(Icons.home)),
 
         )
       );
