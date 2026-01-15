@@ -20,7 +20,8 @@ class Home extends StatelessWidget {
         ),
         body: const Center(
           child: Image(image: 
-          NetworkImage("https://images.pexels.com/photos/18928571/pexels-photo-18928571.jpeg"))
+          //NetworkImage("https://images.pexels.com/photos/18928571/pexels-photo-18928571.jpeg"))
+          AssetImage("assets/images/img.jpg")),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
