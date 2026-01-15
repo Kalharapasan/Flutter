@@ -18,9 +18,13 @@ class Home extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.deepOrange,
         ),
-        body:Container(
+        // body:Container(
+        //   padding: EdgeInsets.all(22.0),
+        //   color: Colors.amber,
+        //   child: Text("Hello"),
+        // )
+         body:Padding(
           padding: EdgeInsets.all(22.0),
-          color: Colors.amber,
           child: Text("Hello"),
         )
       );
