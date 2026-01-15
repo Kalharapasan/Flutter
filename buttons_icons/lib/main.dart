@@ -19,11 +19,18 @@ class Home extends StatelessWidget {
           backgroundColor: Colors.deepOrange,
         ),
         body:Center(
-          child: Icon(
-            Icons.access_alarms,
-            color: Colors.amber,
-            size: 50,
-          ),
+          // child: Icon(
+          //   Icons.access_alarms,
+          //   color: Colors.amber,
+          //   size: 50,
+          // ),
+
+          child:ElevatedButton(onPressed: (){}, 
+          child:Text("Cilkme",
+          style: TextStyle(
+            color: Colors.blueGrey
+          ),))
+
         )
       );
   }
