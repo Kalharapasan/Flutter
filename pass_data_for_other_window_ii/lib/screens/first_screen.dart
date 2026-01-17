@@ -88,7 +88,7 @@ class _FirstScreenState extends State<FirstScreen> {
                 );
 
                 setState(() {
-                  returnedData = result ?? "";
+                  returnedData = (result as String?) ?? "";
                 });
               },
             ),
