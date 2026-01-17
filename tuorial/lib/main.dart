@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: RootPage()
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.amber),
+      home: RootPage(),
     );
   }
 }
@@ -25,6 +27,11 @@ class RootPage extends StatefulWidget {
 class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(title: Text("Flutter")),
+      floatingActionButton: FloatingActionButton(onPressed: () {},
+      child: Icon(Icons.add),),
+      
+    );
   }
 }
