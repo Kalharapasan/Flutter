@@ -19,7 +19,8 @@ class Home extends StatelessWidget {
           backgroundColor: Colors.deepOrange,
         ),
          body:Column(
-
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
               padding: EdgeInsets.all(20.0),
