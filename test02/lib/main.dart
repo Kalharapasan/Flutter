@@ -31,8 +31,9 @@ class _HomeState extends State<Home> {
         title: Text("My App Bar",style: TextStyle(
           color: Colors.deepOrangeAccent,
           fontSize: 30,
-          
+          fontWeight: FontWeight.bold
         ),),
+        centerTitle: true,
       ),
     );
   }
