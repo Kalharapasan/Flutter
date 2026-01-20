@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
       home: Home(),
     );
   }
@@ -25,16 +26,18 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextField(
-          controller: null,
-          decoration: InputDecoration(
-            hintText: "Name",
-            
-          ),
-        )
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title:Text("Add User",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold
+        ),),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+      ),
+      
     );
   }
 }
