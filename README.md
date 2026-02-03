@@ -1,4 +1,4 @@
-"# 🎯 Flutter & Dart Learning Repository
+# 🎯 Flutter & Dart Learning Repository
 
 A comprehensive collection of Flutter and Dart examples, exercises, and lab work for mastering mobile app development.
 
