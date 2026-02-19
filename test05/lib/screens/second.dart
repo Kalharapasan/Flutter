@@ -21,6 +21,7 @@ class SecondScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Scaffold(
+        
         appBar: AppBar(
           backgroundColor: const Color.fromARGB(255, 7, 255, 181),
           title: Center(
@@ -33,6 +34,7 @@ class SecondScreen extends StatelessWidget {
               ),
           ),
         ),
+
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -61,6 +63,7 @@ class SecondScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20,),
+                
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -82,7 +85,9 @@ class SecondScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                
                 SizedBox(height: 20,),
+                
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -104,7 +109,9 @@ class SecondScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                
                 SizedBox(height: 20,),
+                
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
@@ -126,7 +133,9 @@ class SecondScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+                
                 SizedBox(height: 20,),
+                
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -149,6 +158,7 @@ class SecondScreen extends StatelessWidget {
                 )
               ],
             ),
+            
           ),
         ),
       ),
