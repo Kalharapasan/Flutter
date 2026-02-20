@@ -20,7 +20,7 @@ class _ShowDataScreenState extends State<ShowDataScreen> {
   }
 
   Future<void> fetchData() async {
-    final response = await supabase.from('student').select();
+    final response = await supabase.from('studentII').select();
     setState(() {
       dataList = List<Map<String, dynamic>>.from(response);
     });
@@ -53,14 +53,13 @@ class _ShowDataScreenState extends State<ShowDataScreen> {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.edit),
-                    onPressed: () async {
-                      await Navigator.push(
+                    onPressed: () {
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => UpdateDataScreen(data: data),
                         ),
-                      );
-                      fetchData();
+                      ).then((_) => fetchData());
                     },
                   ),
                   IconButton(

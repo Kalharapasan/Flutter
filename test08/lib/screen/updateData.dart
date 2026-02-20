@@ -26,10 +26,11 @@ class _UpdateDataScreenState extends State<UpdateDataScreen> {
   @override
   void initState() {
     super.initState();
-    fname = TextEditingController(text: widget.data["fname"]);
-    lname = TextEditingController(text: widget.data["lname"]);
-    age = TextEditingController(text: widget.data["age"]);
-    phone = TextEditingController(text: widget.data["phone"]);
+
+    fname = TextEditingController(text: widget.data["fname"]?.toString() ?? "");
+    lname = TextEditingController(text: widget.data["lname"]?.toString() ?? "");
+    age = TextEditingController(text: widget.data["age"]?.toString() ?? "");
+    phone = TextEditingController(text: widget.data["phone"]?.toString() ?? "");
 
     rating = (widget.data["rating"] ?? 3).toDouble();
     isActive = widget.data["is_active"] ?? false;
@@ -61,16 +62,20 @@ class _UpdateDataScreenState extends State<UpdateDataScreen> {
         child: Column(
           children: [
 
-            TextField(controller: fname, decoration: const InputDecoration(labelText: "First Name", border: OutlineInputBorder())),
+            TextField(controller: fname,
+              decoration: const InputDecoration(labelText: "First Name", border: OutlineInputBorder())),
             const SizedBox(height: 10),
 
-            TextField(controller: lname, decoration: const InputDecoration(labelText: "Last Name", border: OutlineInputBorder())),
+            TextField(controller: lname,
+              decoration: const InputDecoration(labelText: "Last Name", border: OutlineInputBorder())),
             const SizedBox(height: 10),
 
-            TextField(controller: age, decoration: const InputDecoration(labelText: "Age", border: OutlineInputBorder())),
+            TextField(controller: age,
+              decoration: const InputDecoration(labelText: "Age", border: OutlineInputBorder())),
             const SizedBox(height: 10),
 
-            TextField(controller: phone, decoration: const InputDecoration(labelText: "Phone", border: OutlineInputBorder())),
+            TextField(controller: phone,
+              decoration: const InputDecoration(labelText: "Phone", border: OutlineInputBorder())),
             const SizedBox(height: 20),
 
             const Text("Rating"),
@@ -81,9 +86,7 @@ class _UpdateDataScreenState extends State<UpdateDataScreen> {
               divisions: 4,
               label: rating.toString(),
               onChanged: (value) {
-                setState(() {
-                  rating = value;
-                });
+                setState(() => rating = value);
               },
             ),
 
@@ -91,18 +94,24 @@ class _UpdateDataScreenState extends State<UpdateDataScreen> {
               title: const Text("Active Student"),
               value: isActive,
               onChanged: (value) {
-                setState(() {
-                  isActive = value!;
-                });
+                setState(() => isActive = value!);
               },
             ),
 
             const Text("Gender"),
             Row(
               children: [
-                Radio(value: "Male", groupValue: gender, onChanged: (v) => setState(() => gender = v.toString())),
+                Radio(
+                  value: "Male",
+                  groupValue: gender,
+                  onChanged: (value) => setState(() => gender = value.toString()),
+                ),
                 const Text("Male"),
-                Radio(value: "Female", groupValue: gender, onChanged: (v) => setState(() => gender = v.toString())),
+                Radio(
+                  value: "Female",
+                  groupValue: gender,
+                  onChanged: (value) => setState(() => gender = value.toString()),
+                ),
                 const Text("Female"),
               ],
             ),
@@ -115,9 +124,7 @@ class _UpdateDataScreenState extends State<UpdateDataScreen> {
                 DropdownMenuItem(value: "BCA", child: Text("BCA")),
               ],
               onChanged: (value) {
-                setState(() {
-                  department = value.toString();
-                });
+                setState(() => department = value.toString());
               },
               decoration: const InputDecoration(
                 labelText: "Department",
@@ -129,7 +136,7 @@ class _UpdateDataScreenState extends State<UpdateDataScreen> {
 
             ElevatedButton(
               onPressed: updateData,
-              child: const Text("Update"),
+              child: const Text("Update Data"),
             ),
           ],
         ),

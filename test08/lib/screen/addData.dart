@@ -3,7 +3,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:test08/screen/showData.dart';
 
 class AddDataScreen extends StatefulWidget {
-  const AddDataScreen({Key? key}) : super(key: key);
+  const AddDataScreen({super.key});
 
   @override
   State<AddDataScreen> createState() => _AddDataScreenState();
@@ -34,9 +34,13 @@ class _AddDataScreenState extends State<AddDataScreen> {
       "department": department,
     });
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const ShowDataScreen()),
+    fname.clear();
+    lname.clear();
+    age.clear();
+    phone.clear();
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Data Added Successfully")),
     );
   }
 
@@ -49,32 +53,22 @@ class _AddDataScreenState extends State<AddDataScreen> {
         child: Column(
           children: [
 
-            TextField(
-              controller: fname,
-              decoration: const InputDecoration(labelText: "First Name", border: OutlineInputBorder()),
-            ),
+            TextField(controller: fname,
+              decoration: const InputDecoration(labelText: "First Name", border: OutlineInputBorder())),
             const SizedBox(height: 10),
 
-            TextField(
-              controller: lname,
-              decoration: const InputDecoration(labelText: "Last Name", border: OutlineInputBorder()),
-            ),
+            TextField(controller: lname,
+              decoration: const InputDecoration(labelText: "Last Name", border: OutlineInputBorder())),
             const SizedBox(height: 10),
 
-            TextField(
-              controller: age,
-              decoration: const InputDecoration(labelText: "Age", border: OutlineInputBorder()),
-            ),
+            TextField(controller: age,
+              decoration: const InputDecoration(labelText: "Age", border: OutlineInputBorder())),
             const SizedBox(height: 10),
 
-            TextField(
-              controller: phone,
-              decoration: const InputDecoration(labelText: "Phone", border: OutlineInputBorder()),
-            ),
-
+            TextField(controller: phone,
+              decoration: const InputDecoration(labelText: "Phone", border: OutlineInputBorder())),
             const SizedBox(height: 20),
 
-            /// Rating Slider
             const Text("Rating"),
             Slider(
               value: rating,
@@ -83,51 +77,36 @@ class _AddDataScreenState extends State<AddDataScreen> {
               divisions: 4,
               label: rating.toString(),
               onChanged: (value) {
-                setState(() {
-                  rating = value;
-                });
+                setState(() => rating = value);
               },
             ),
 
-            /// Checkbox
             CheckboxListTile(
               title: const Text("Active Student"),
               value: isActive,
               onChanged: (value) {
-                setState(() {
-                  isActive = value!;
-                });
+                setState(() => isActive = value!);
               },
             ),
 
-            /// Radio Button
             const Text("Gender"),
             Row(
               children: [
                 Radio(
                   value: "Male",
                   groupValue: gender,
-                  onChanged: (value) {
-                    setState(() {
-                      gender = value.toString();
-                    });
-                  },
+                  onChanged: (value) => setState(() => gender = value.toString()),
                 ),
                 const Text("Male"),
                 Radio(
                   value: "Female",
                   groupValue: gender,
-                  onChanged: (value) {
-                    setState(() {
-                      gender = value.toString();
-                    });
-                  },
+                  onChanged: (value) => setState(() => gender = value.toString()),
                 ),
                 const Text("Female"),
               ],
             ),
 
-            /// Dropdown
             DropdownButtonFormField(
               value: department,
               items: const [
@@ -136,9 +115,7 @@ class _AddDataScreenState extends State<AddDataScreen> {
                 DropdownMenuItem(value: "BCA", child: Text("BCA")),
               ],
               onChanged: (value) {
-                setState(() {
-                  department = value.toString();
-                });
+                setState(() => department = value.toString());
               },
               decoration: const InputDecoration(
                 labelText: "Department",
@@ -146,11 +123,31 @@ class _AddDataScreenState extends State<AddDataScreen> {
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
 
-            ElevatedButton(
-              onPressed: addData,
-              child: const Text("Save & Show"),
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: addData,
+                    child: const Text("Add Data"),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ShowDataScreen(),
+                        ),
+                      );
+                    },
+                    child: const Text("Show Data"),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
